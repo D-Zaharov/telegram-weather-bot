@@ -1,9 +1,11 @@
 ﻿import telebot
 from telebot import apihelper
 
-apihelper.proxy = {'https':'socks5://Naatkok:jGgTzR7kvzIFpdReXcrd22V15MfHtDOKdSUbWXgH@vpnzone.technology:10580'}
+apihelper.proxy = {'https':'socks5h://Naatkok:jGgTzR7kvzIFpdReXcrd22V15MfHtDOKdSUbWXgH@vpnzone.technology:10580'}
 
-bot = telebot.TeleBot(' '); #здесь ключ от робота
+import keys
+
+bot = telebot.TeleBot(keys.bot);
 
 import weather_func
 
@@ -19,7 +21,7 @@ def send_text(message):
     elif message.text.lower() == 'пока':
         bot.send_message(message.chat.id, 'До новых встреч')
     else:
-        weather = weather_func.get_tempereture(message.text)
+        weather = weather_func.get_tempereture(keys.api, message.text)
         if weather == None:
             bot.send_message(message.chat.id, 'Извини, ничего не могу найти. Введи только город в котором ты хочешь узнать погоду в именительном падеже.')
         else:
