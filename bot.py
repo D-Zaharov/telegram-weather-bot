@@ -20,6 +20,7 @@ def send_text(message):
         bot.send_message(message.chat.id, 'Привет! В каком городе хочешь узнать погоду?')
     elif message.text.lower() == 'пока':
         bot.send_message(message.chat.id, 'До новых встреч')
+<<<<<<< HEAD
     elif message.text.lower()[:11] == 'температура':
         weather = weather_func.get_tempereture(keys.api, message.text)
         if weather == None:
@@ -28,6 +29,10 @@ def send_text(message):
             bot.send_message(message.chat.id, 'Температура в выбранном городе ' + str(weather) + 'градусов')
     elif message.text.lower()[:14] == 'скорость ветра':
         weather = weather_func.get_wind(keys.api, message.text)
+=======
+    else:
+        weather = weather_func.get_tempereture(keys.api, message.text)
+>>>>>>> 5b0ed8dc17bb9ba7bce20e62a1d47d1107b4117e
         if weather == None:
             bot.send_message(message.chat.id, 'Извини, ничего не могу найти.')
         else:
